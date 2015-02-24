@@ -18,6 +18,7 @@ package com.android.deskclock;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
+import android.animation.AnimatorSet;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -419,11 +420,17 @@ public class DeskClock extends Activity implements LabelDialogFragment.TimerLabe
         }
         final int currHourColor = Utils.getCurrentHourColor();
         if (mLastHourColor != currHourColor) {
-            final ObjectAnimator animator = ObjectAnimator.ofInt(getWindow().getDecorView(),
+            final ObjectAnimator BackgroundAnimator = ObjectAnimator.ofInt(getWindow().getDecorView(),
                     "backgroundColor", mLastHourColor, currHourColor);
-            animator.setDuration(duration);
-            animator.setEvaluator(new ArgbEvaluator());
-            animator.start();
+            final ObjectAnimator NavBarAnimation = ObjectAnimator.ofInt(getWindow(),
+                    "navigationBarColor", mLastHourColor, currHourColor);
+            BackgroundAnimator.setEvaluator(new ArgbEvaluator());
+            NavBarAnimation.setEvaluator(new ArgbEvaluator());
+
+            final AnimatorSet a = new AnimatorSet();
+            a.playTogether(BackgroundAnimator, NavBarAnimation);
+            a.setDuration(duration);
+            a.start();
             mLastHourColor = currHourColor;
         }
     }
