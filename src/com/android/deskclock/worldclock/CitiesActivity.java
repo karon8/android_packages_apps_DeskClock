@@ -57,6 +57,7 @@ import android.widget.Toast;
 
 import com.android.deskclock.R;
 import com.android.deskclock.SettingsActivity;
+import com.android.internal.util.one.OneUtils;
 import com.android.deskclock.Utils;
 import com.android.deskclock.worldclock.db.DbCities;
 import com.android.deskclock.worldclock.db.DbCity;
@@ -610,7 +611,7 @@ public class CitiesActivity extends Activity implements OnCheckedChangeListener,
             mAdapter.set24HoursMode(this);
         }
 
-        getWindow().getDecorView().setBackgroundColor(Utils.getCurrentHourColor());
+        getWindow().getDecorView().setBackgroundColor(OneUtils.getCurrentHourColor());
     }
 
     @Override

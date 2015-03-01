@@ -51,6 +51,7 @@ import com.android.deskclock.R;
 import com.android.deskclock.SettingsActivity;
 import com.android.deskclock.Utils;
 import com.android.deskclock.provider.AlarmInstance;
+import com.android.internal.util.one.OneUtils;
 
 public class AlarmActivity extends Activity implements View.OnClickListener, View.OnTouchListener {
 
@@ -190,7 +191,7 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Vie
         Utils.setTimeFormat(digitalClock,
                 getResources().getDimensionPixelSize(R.dimen.main_ampm_font_size));
 
-        mCurrentHourColor = Utils.getCurrentHourColor();
+        mCurrentHourColor = OneUtils.getCurrentHourColor();
         mContainerView.setBackgroundColor(mCurrentHourColor);
 
         mAlarmButton.setOnTouchListener(this);

@@ -57,6 +57,7 @@ import com.android.deskclock.stopwatch.Stopwatches;
 import com.android.deskclock.timer.TimerFragment;
 import com.android.deskclock.timer.TimerObj;
 import com.android.deskclock.timer.Timers;
+import com.android.internal.util.one.OneUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -418,7 +419,7 @@ public class DeskClock extends Activity implements LabelDialogFragment.TimerLabe
         } else {
             duration = getResources().getInteger(android.R.integer.config_longAnimTime);
         }
-        final int currHourColor = Utils.getCurrentHourColor();
+        final int currHourColor = OneUtils.getCurrentHourColor();
         if (mLastHourColor != currHourColor) {
             final ObjectAnimator BackgroundAnimator = ObjectAnimator.ofInt(getWindow().getDecorView(),
                     "backgroundColor", mLastHourColor, currHourColor);

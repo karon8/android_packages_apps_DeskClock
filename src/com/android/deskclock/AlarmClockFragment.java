@@ -92,6 +92,7 @@ import com.android.deskclock.provider.AlarmInstance;
 import com.android.deskclock.provider.DaysOfWeek;
 import com.android.deskclock.widget.ActionableToastBar;
 import com.android.deskclock.widget.TextTime;
+import com.android.internal.util.one.OneUtils;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
@@ -1162,7 +1163,7 @@ public class AlarmClockFragment extends DeskClockFragment implements
         }
 
         private int getTintedBackgroundColor() {
-            final int c = Utils.getCurrentHourColor();
+            final int c = OneUtils.getCurrentHourColor();
             final int red = Color.red(c) + (int) (TINTED_LEVEL * (255 - Color.red(c)));
             final int green = Color.green(c) + (int) (TINTED_LEVEL * (255 - Color.green(c)));
             final int blue = Color.blue(c) + (int) (TINTED_LEVEL * (255 - Color.blue(c)));
@@ -1393,7 +1394,7 @@ public class AlarmClockFragment extends DeskClockFragment implements
         private void turnOnDayOfWeek(ItemHolder holder, int dayIndex) {
             final Button dayButton = holder.dayButtons[dayIndex];
             dayButton.setActivated(true);
-            dayButton.setTextColor(Utils.getCurrentHourColor());
+            dayButton.setTextColor(OneUtils.getCurrentHourColor());
         }
 
 

@@ -26,6 +26,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.android.deskclock.R;
+import com.android.internal.util.one.OneUtils;
 import com.android.deskclock.Utils;
 import com.android.deskclock.timer.TimerFullScreenFragment.OnEmptyListListener;
 
@@ -77,7 +78,7 @@ public class TimerAlertFullScreen extends Activity implements OnEmptyListListene
     protected void onResume() {
         super.onResume();
 
-        getWindow().getDecorView().setBackgroundColor(Utils.getCurrentHourColor());
+        getWindow().getDecorView().setBackgroundColor(OneUtils.getCurrentHourColor());
 
         // Only show notifications for times-up when this activity closed.
         Utils.cancelTimesUpNotifications(this);

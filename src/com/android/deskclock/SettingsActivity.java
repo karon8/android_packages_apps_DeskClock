@@ -36,6 +36,7 @@ import android.view.MenuItem;
 
 import com.android.deskclock.alarms.AlarmNotifications;
 import com.android.deskclock.worldclock.Cities;
+import com.android.internal.util.one.OneUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -117,7 +118,7 @@ public class SettingsActivity extends PreferenceActivity
     @Override
     protected void onResume() {
         super.onResume();
-        getWindow().getDecorView().setBackgroundColor(Utils.getCurrentHourColor());
+        getWindow().getDecorView().setBackgroundColor(OneUtils.getCurrentHourColor());
         refresh();
     }
 
